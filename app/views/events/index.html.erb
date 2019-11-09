@@ -1,9 +1,15 @@
+
+
 <h1>Events/h1>
-<p>Find me in app/views/events/index.html.erb</p>
 
 <ul>
-
-<h3>Artist: </h3>
-<h3>Date: </h3>
-<h3>Venue: </h3>
-
+    <li>
+    <% @event_array.each do |hash| %>
+        <% hash.each do |key, value| %>
+            <%="#{key}: #{value}"%><br>
+            <%="#{key}: #{value}"%><br>
+            <%="#{key}: #{value}"%><br>
+        <% end %>
+    <% end %>
+    </li>
+</ul>

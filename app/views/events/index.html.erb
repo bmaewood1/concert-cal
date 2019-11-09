@@ -1,15 +1,11 @@
-
-
-<h1>Events/h1>
+<h1>Events</h1>
 
 <ul>
-    <li>
-    <% @event_array.each do |hash| %>
-        <% hash.each do |key, value| %>
-            <%="#{key}: #{value}"%><br>
-            <%="#{key}: #{value}"%><br>
-            <%="#{key}: #{value}"%><br>
-        <% end %>
+    <% @events.each do |event| %>
+        <li>
+        Artist: <%=event.artist%><br>
+        Venue: <%=event.venue%><br>
+        Date: <%=event.date%><br>
+        </li>
     <% end %>
-    </li>
 </ul>

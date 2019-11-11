@@ -1,13 +1,41 @@
+
+<%= render "layouts/nav" %>
+
 <h1>Events</h1>
 
-<ul>
-    <% @events.each do |event| %>
-        <li>
-        Artist: <%=event.artist%><br>
-        Venue: <%=event.venue%><br>
-        Date: <%=event.date%><br>
-        <%= link_to "View Event", event_path(event) %><br>
-        <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post %>
-        </li>
-    <% end %>
-</ul>
+<h3>Search by Artist:</h3>
+
+
+
+<%= form_tag(search_event_path, method: "get") do %>
+  <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+  <%= button_tag "Search", :name => nil %>
+  <% end %>
+
+
+    <%= @events.first.date.strftime("%B") %>
+    <hr>
+        <% @events.each do |event| %>
+            <div>
+                <div>
+                    <strong><%=event.artist%></strong><br>
+                    Venue: <%=event.venue%><br>
+                    Date: <%=event.date.rfc2822.slice(0, event.date.rfc2822.length-14)%><br>
+                    <%= link_to "View Event", event_path(event) %><br>
+                    <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post %><br>
+                </div>
+                <div>
+                    <img src =<%=event.image%> width="280" height="190"><br>
+                <br>
+                </div>
+            </div>
+
+        <% end %>
+
+
+
+
+  
+
+
+

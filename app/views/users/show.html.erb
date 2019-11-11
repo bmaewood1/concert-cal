@@ -1,6 +1,5 @@
+<%= render "layouts/nav" %>
+
 <h1>Welcome to Concert Cal, <%=@user.first_name%> !</h1>
 
-<h3>What do you want to do?<h3>
 
-    <%= link_to "View your Concert Cal", calendar_path(@user.calendar) %><br>
-    <%= link_to "View concerts in your area", events_path %>

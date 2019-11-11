@@ -3,7 +3,10 @@ class CreateEvents < ActiveRecord::Migration[6.0]
     create_table :events do |t|
       t.string :artist
       t.string :venue
-      t.string :date
+      t.datetime :date
+      t.string :image
+      t.string :ticket_url
+      t.string :genre
 
       t.timestamps
     end

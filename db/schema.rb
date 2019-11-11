@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(version: 2019_11_08_145032) do
   create_table "events", force: :cascade do |t|
     t.string "artist"
     t.string "venue"
-    t.string "date"
+    t.datetime "date"
+    t.string "image"
+    t.string "ticket_url"
+    t.string "genre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

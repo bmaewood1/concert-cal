@@ -1,0 +1,12 @@
+<h3>Events matching "<%=@parameter%>"<h3><hr>
+
+<ul>
+<% @selected_events.each do |result| %>  
+    <li>
+    Event: <%= result.artist %><br>
+    Venue: <%= result.venue %><br>
+    Date: <%= result.date.rfc2822.slice(0, result.date.rfc2822.length-14) %><br>
+    <%= link_to "View Event", event_path(result) %><br>
+    </li>
+<% end %>
+</ul>

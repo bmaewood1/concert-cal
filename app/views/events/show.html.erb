@@ -1,7 +1,20 @@
-<h1>Event: <%=@event.artist%></h1>
+<%= render "layouts/nav" %>
+
+<h1><%=@event.artist%></h1>
 
 <h3>Venue: <%=@event.venue%></h3>
-<h3>Date: <%=@event.date%></h3>
+<h3>Date: <%=@event.date.rfc2822.slice(0, @event.date.rfc2822.length-14)%></h3>
+<h3>Genre: <%=@event.genre%></h3>
+<img src =<%=@event.image%> width="380" height="290"><br>
+<%=link_to "Buy a ticket", @event.ticket_url, target: :_blank %>
+
+
+
+
+
+
+
+
 
 
 

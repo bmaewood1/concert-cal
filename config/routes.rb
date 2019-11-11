@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   post 'events_calendars/:id', to: "events_calendars#create", as: 'new_event_calendar'
 
   get 'events/', to: "events#index", as: 'events'
+  get 'events/search', to: "events#search", as: 'search_event'
   get 'events/:id', to: "events#show", as: 'event'
+
+
 
   
 end

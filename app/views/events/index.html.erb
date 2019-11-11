@@ -6,6 +6,8 @@
         Artist: <%=event.artist%><br>
         Venue: <%=event.venue%><br>
         Date: <%=event.date%><br>
+        <%= link_to "View Event", event_path(event) %><br>
+        <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post %>
         </li>
     <% end %>
 </ul>

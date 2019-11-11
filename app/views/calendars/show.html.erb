@@ -1,2 +1,8 @@
 <h1>Your Concert Cal</h1>
 
+<% @my_events.each do |event| %>
+    Artist: <%= event.event.artist %><br>
+    Venue: <%= event.event.venue %><br>
+    Date: <%= event.event.date %>
+<% end %>
+

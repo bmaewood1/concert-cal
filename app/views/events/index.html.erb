@@ -8,29 +8,31 @@
 
 
 <%= form_tag(search_event_path, method: "get") do %>
-  <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
-  <%= button_tag "Search", :name => nil %>
-  <% end %>
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+    <%= button_tag "Search", :name => nil %>
+<% end %>
 
 
-    <%= @events.first.date.strftime("%B") %>
-    <hr>
-        <% @events.each do |event| %>
-            <div>
-                <div>
-                    <strong><%=event.artist%></strong><br>
-                    Venue: <%=event.venue%><br>
-                    Date: <%=event.date.rfc2822.slice(0, event.date.rfc2822.length-14)%><br>
-                    <%= link_to "View Event", event_path(event) %><br>
-                    <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post %><br>
-                </div>
-                <div>
-                    <img src =<%=event.image%> width="280" height="190"><br>
-                <br>
-                </div>
+<%= @events.first.date.strftime("%B") %>
+<hr>
+<% @events.each do |event| %>
+    <div class="card">
+        <div class="card-header">
+            <strong class="card-title"><%=event.artist.upcase%></strong><br>
+        </div>
+        <div class="row">
+            <div class="col-8 align-middle">
+                Venue: <%=event.venue%><br>
+                Date: <%=event.date.rfc2822.slice(0, event.date.rfc2822.length-14)%><br>
+                <%= link_to "View Event", event_path(event) %><br>
+                <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post %>
             </div>
-
-        <% end %>
+            <div class="col">
+                <img src =<%=event.image%> width="280" height="190">
+            </div>
+        </div>
+    </div>
+<% end %>
 
 
 

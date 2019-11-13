@@ -1,13 +1,9 @@
-
-<%= render "layouts/nav" %>
-
 <h1>Events</h1>
 
-<h3>Search by Artist:</h3>
 
 
-
-<%= form_tag(search_event_path, method: "get") do %>
+Search by: <%= form_tag(search_event_path, method: "get") do %>
+    <%= collection_select(:category, :cat_id, @categories, :id, :name, prompt: true) %>
     <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
     <%= button_tag "Search", :name => nil %>
 <% end %>
@@ -28,7 +24,7 @@
                 <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post %>
             </div>
             <div class="col">
-                <img src =<%=event.image%> width="280" height="190">
+                <img src =<%=event.image%> width="280" height="190" class="shadow rounded">
             </div>
         </div>
     </div>

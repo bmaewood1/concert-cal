@@ -1,7 +1,7 @@
 class EventsCalendarsController < ApplicationController
 
     def create
-        @user = User.find(7)
+        @user = current_user
         @calendar = Calendar.find_by(id: @user.calendar.id)
         @event = Event.find(params[:id])
         @eventcalendar = EventCalendar.new(calendar_id: @calendar.id, event_id: @event.id)

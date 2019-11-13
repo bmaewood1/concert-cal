@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get 'events/search', to: "events#search", as: 'search_event'
   get 'events/:id', to: "events#show", as: 'event'
 
+  get 'login', to: 'sessions#new', as: 'login'
+  post 'sessions', to: 'sessions#create', as: 'sessions'
+  delete 'sessions', to: 'sessions#destroy', as: 'delete_session'
+
 
 
   

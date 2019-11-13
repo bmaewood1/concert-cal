@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_one :calendar
 
-    validates :username, uniqueness: true
+    has_secure_password
+    validates :username, uniqueness: { case_sensitive: false }, presence: true
 end

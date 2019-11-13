@@ -1,7 +1,8 @@
-<h3>Events matching "<%=@parameter%>"<h3><hr>
+<h3>Events matching <%=Category.find(@category).name%>: <%=@parameter%><h3><hr>
 
 <ul>
-<% @selected_events.each do |result| %>  
+
+<% @selected_events.order('date ASC').each do |result| %>  
     <li>
     Event: <%= result.artist %><br>
     Venue: <%= result.venue %><br>
@@ -10,3 +11,4 @@
     </li>
 <% end %>
 </ul>
+

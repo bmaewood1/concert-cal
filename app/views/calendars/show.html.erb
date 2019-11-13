@@ -1,9 +1,21 @@
-<h1>Your Concert Cal</h1>
 
-<% @my_events.each do |event| %>
-    <b><%= event.event.artist %></b><br>
-    Venue: <%= event.event.venue %><br>
-    Date: <%= event.event.date.rfc2822.slice(0, event.event.date.rfc2822.length-14) %><br>
-    <hr>
-<% end %>
+
+<h1><%="#{@calendar.user.first_name}'s Concert Cal"%></h1>
+
+
+<%= month_calendar events: @my_events do |date, events| %>
+    <%= date.day %>
+    <% events.each do |event| %>
+      <div>
+        <%= link_to event.event.artist, event_path(event.event) %><br>
+        <% if session[:user_id] == @calendar.user.id %>
+          <%= link_to "Delete from Calendar", delete_event_calendar_path(event.event.id), method: :delete %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+
+
+
 

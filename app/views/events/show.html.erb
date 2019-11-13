@@ -4,7 +4,22 @@
 <h3>Date: <%=@event.date.rfc2822.slice(0, @event.date.rfc2822.length-14)%></h3>
 <h3>Genre: <%=@event.genre%></h3>
 <img src =<%=@event.image%> width="380" height="290"><br>
-<%=link_to "Buy a ticket", @event.ticket_url, target: :_blank %>
+<%=link_to "Add Event to my Cal", new_event_calendar_path(@event), method: :post %><br>
+<%=link_to "Buy a ticket", @event.ticket_url, target: :_blank %><br>
+
+RSVPs:
+
+<% User.all.each do |user| %>
+
+    <% if EventCalendar.all.find_by(event_id: @event.id) %>
+        <% if user.calendar.id == (EventCalendar.all.find_by(event_id: @event.id)).calendar_id %>
+            <%= user.full_name %><br>
+            <% if session[:user_id] != user.id %>
+                <%= link_to "View #{user.first_name}'s Concert Cal", calendar_path(user.calendar.id) %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
 
 
 

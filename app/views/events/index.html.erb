@@ -1,7 +1,5 @@
 <h1>Events</h1>
 
-
-
 Search by: <%= form_tag(search_event_path, method: "get") do %>
     <%= collection_select(:category, :cat_id, @categories, :id, :name, prompt: true) %>
     <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
@@ -19,7 +17,7 @@ Search by: <%= form_tag(search_event_path, method: "get") do %>
         <div class="row">
             <div class="col-8 align-middle">
                 Venue: <%=event.venue%><br>
-                Date: <%=event.date.rfc2822.slice(0, event.date.rfc2822.length-14)%><br>
+                Date: <%=event.date.rfc2822.slice(0, event.date.rfc2822.length-15)%><br>
                 <%= link_to "View Event", event_path(event) %><br>
                 <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post %>
             </div>

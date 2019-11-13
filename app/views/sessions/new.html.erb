@@ -1,16 +1,20 @@
-
-<% if flash[:alert]%>
-  <% flash[:alert].each do |message| %>
-    <p style='color:red;'>❌<%= message %></p>
+<body>
+  <% if flash[:alert]%>
+    <% flash[:alert].each do |message| %>
+      <p style='color:red;'>❌<%= message %></p>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= form_tag sessions_path do %>
-  <%= label_tag "Username" %>
-  <%= text_field_tag :username %>
-  <br>
-  <%= label_tag 'Password' %>
-  <%= password_field_tag :password %>
-  <br>
-  <%= submit_tag "Sign In" %>
-<% end %>
+  <%= form_tag sessions_path do %>
+    <%= label_tag "Username" %>
+    <%= text_field_tag :username %>
+    <br>
+    <%= label_tag 'Password' %>
+    <%= password_field_tag :password %>
+    <br>
+    <%= submit_tag "Sign In" %>
+  <% end %>
+</body>
+
+Not a member yet?<br>
+<%= link_to "Create an account here", new_user_path %>

@@ -8,6 +8,8 @@ class EventsController < ApplicationController
 
   ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'db/development.sqlite3')
 
+  before_action :authorized, only: [:index]
+  
 
   def index
     json = JSON.parse(RestClient.get 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&marketId=35&apikey=9Gi3bYz1RDWYyebA5yy6setBUgOQPG12&size=20')

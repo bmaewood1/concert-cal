@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'users/:id', to: "users#show", as: 'user'
   post 'users/:id', to: "users#create"
 
+  get 'calendar/new', to: "calendars#new"
+  post 'canedars/:id', to: "calendars#create"
   get 'calendars/:id', to: "calendars#show", as: 'calendar'
 
   # get 'events_calendars/new', to: "events_calendars#new", as: 'new_event_calendar'
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   post 'sessions', to: 'sessions#create', as: 'sessions'
   delete 'sessions', to: 'sessions#destroy', as: 'delete_session'
+
+  delete 'events_calendars/:id', to: 'events_calendars#destroy', as: 'delete_event_calendar'
 
 
 

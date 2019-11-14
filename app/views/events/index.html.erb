@@ -28,7 +28,7 @@
                 <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post, class: "btn btn-primary btn-small", id: "event_button" %><br>
             </div>
             <div class="col">
-                <img src =<%=event.image%> width="280" height="190" class="shadow rounded">
+                <img src =<%=event.image%> width="280" height="190" class="shadow rounded" preserveAspectRatio="xMidYMid slice">
             </div>
         </div>
     </div>

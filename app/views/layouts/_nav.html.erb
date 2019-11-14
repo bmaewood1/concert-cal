@@ -1,24 +1,19 @@
-<div class="navbar navbar-light bg-primary border-bottom shadow-sm sticky-top" style="background-color: #e3f2fd;">
-   <h5 class="my-0 mr-md-auto font-weight-normal">CONCERT CAL</h5>
-
-
-
-   <nav class="my-2 my-md-0 mr-md-3">
-       <%= link_to "Browse Events", events_path, class: "text-dark mr-3" %>
+<nav class="navbar navbar-light bg-primary border-bottom shadow-sm sticky-top">
+   <h3 class="my-0 mr-md-auto font-weight-normal text-white">CONCERT CAL</h3>
+   <div class="my-2 my-md-0 mr-md-3">
+       <%= link_to "Browse Events", events_path, class: "btn btn-primary text-dark mr-3" %>
 
         <% if logged_in? %>
-            <%= link_to "My Concert Cal", calendar_path(User.find(session[:user_id]).calendar.id), class: "text-dark mr-3" %>
+            <%= link_to "My Concert Cal", calendar_path(User.find(session[:user_id]).calendar.id), class: "btn btn-primary text-dark mr-3 " %>
         <% else %>
             <%= link_to "My Concert Cal", login_path, class: "text-dark mr-3" %>
         <% end %>
-    
-       <%= link_to "Settings", "#", class: "text-dark mr-3" %>
-   </nav>
+   </div>
 
     <% if logged_in? %>
-        <%= link_to "Sign out", delete_session_path, method: :delete, class: "text-dark mr-3" %>
+        <%= link_to "Sign out", delete_session_path, method: :delete, class: "btn btn-primary text-dark mr-3" %>
     <% else %>
         <%= link_to "Sign in", login_path, class: "text-dark mr-3" %>
     <% end %>
 
-</div>
+</nav>

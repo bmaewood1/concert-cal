@@ -1,25 +1,31 @@
-<h1>Events</h1>
-
-Search by: <%= form_tag(search_event_path, method: "get") do %>
-    <%= collection_select(:category, :cat_id, @categories, :id, :name, prompt: true) %>
-    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
-    <%= button_tag "Search", :name => nil %>
-<% end %>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:400,700|Quicksand&display=swap" rel="stylesheet">
+</head>
+<h1 class = "title">EVENTS</h1>
 
 
-<%= @events.first.date.strftime("%B") %>
-<hr>
+<div class="card">
+    <div class="card-body" id="event_search">
+        <%= form_tag(search_event_path, method: "get") do %>
+            Search by: <%= collection_select(:category, :cat_id, @categories, :id, :name, prompt: true) %>
+            <%= search_field_tag :search, params[:search], placeholder: "Search"%>
+            <%= button_tag "Search", :name => nil %><br>
+        <% end %>
+    </div>
+</div>
+
+
 <% @events.each do |event| %>
     <div class="card">
         <div class="card-header">
             <strong class="card-title"><%=event.artist.upcase%></strong><br>
         </div>
         <div class="row">
-            <div class="col-8 align-middle">
-                Venue: <%=event.venue%><br>
-                Date: <%=event.date.rfc2822.slice(0, event.date.rfc2822.length-15)%><br>
+            <div class="col-8 align-middle" id = "event_body">
+                <span style="font-weight:700">Venue:</span> <%=event.venue%><br>
+                <b>Date:</b> <%=event.date.rfc2822.slice(0, event.date.rfc2822.length-15)%><br>
                 <%= link_to "View Event", event_path(event) %><br>
-                <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post %>
+                <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post, class: "btn btn-primary btn-small", id: "event_button" %><br>
             </div>
             <div class="col">
                 <img src =<%=event.image%> width="280" height="190" class="shadow rounded">

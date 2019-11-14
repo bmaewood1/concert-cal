@@ -9,7 +9,7 @@
       <div>
         <%= link_to event.event.artist, event_path(event.event) %><br>
         <% if session[:user_id] == @calendar.user.id %>
-          <%= link_to "Delete from Calendar", delete_event_calendar_path(event.event.id), method: :delete %>
+          <%= link_to "Delete from Calendar", delete_event_calendar_path(event.event.id), method: :delete, class: "btn btn-primary btn-sm" %>
         <% end %>
       </div>
     <% end %>

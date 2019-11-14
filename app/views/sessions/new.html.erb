@@ -1,9 +1,4 @@
 <body>
-  <% if flash[:alert]%>
-    <% flash[:alert].each do |message| %>
-      <p style='color:red;'>❌<%= message %></p>
-    <% end %>
-  <% end %>
 
   <%= form_tag sessions_path do %>
     <%= label_tag "Username" %>

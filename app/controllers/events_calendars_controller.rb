@@ -4,18 +4,13 @@ class EventsCalendarsController < ApplicationController
         @user = current_user
         @calendar = Calendar.find_by(id: @user.calendar.id)
         @event = Event.find(params[:id])
-        # make this a validation?
-        if EventCalendar.all.include?(EventCalendar.find_by(calendar_id: @calendar.id, event_id: @event.id))
-            redirect_to events_path
-        else
-            @eventcalendar = EventCalendar.create(calendar_id: @calendar.id, event_id: @event.id)
+        @eventcalendar = EventCalendar.new(calendar_id: @calendar.id, event_id: @event.id)
+        if @eventcalendar.save
             redirect_to calendar_path(@calendar)
-                # if @eventcalendar.save
-                    # redirect_to calendar_path(@calendar)
+        else
+            flash.alert = ["This event is already on your Concert Cal"]
+            redirect_to events_path
         end
-                # else
-                #     redirect_to events_path
-                # end
     end
 
     def destroy

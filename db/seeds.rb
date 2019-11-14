@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(first_name: "Bailey", last_name: "Wood", username: "bwood", password_digest: "123")
+
 
 # Category.create_or_find_by(name: "Artist")
 # Category.create_or_find_by(name: "Venue")
 # Category.create_or_find_by(name: "Genre")
+
+Event.create(artist: "The Peter Show", venue: "Madison Square Garden", date: DateTime.now, image: "/images/linked_in.jpeg", ticket_url: "https://www.linkedin.com/in/peter-werner-a64097147/", genre: "Pop/rock/r&b/rap/country")

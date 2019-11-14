@@ -1,13 +1,20 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Catamaran:400,700|Quicksand&display=swap" rel="stylesheet">
 </head>
+
+<div class="flash">
+    <% if flash[:notice] %>
+        <%= flash.notice %>
+    <% end %>
+</div>
+
 <h1 class = "title">EVENTS</h1>
 
 
 <div class="card">
     <div class="card-body" id="event_search">
         <%= form_tag(search_event_path, method: "get") do %>
-            Search by: <%= collection_select(:category, :cat_id, @categories, :id, :name, prompt: true) %>
+            Search by: <%= collection_select(:category, :cat_id, @categories, :id, :name, prompt: true) %> 
             <%= search_field_tag :search, params[:search], placeholder: "Search"%>
             <%= button_tag "Search", :name => nil %><br>
         <% end %>
@@ -24,9 +31,11 @@
             <div class="col-8 align-middle" id = "event_body">
                 <span style="font-weight:700">Venue:</span> <%=event.venue%><br>
                 <b>Date:</b> <%=event.date.rfc2822.slice(0, event.date.rfc2822.length-15)%><br>
-                <%= link_to "View Event", event_path(event) %><br>
-                <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post, class: "btn btn-primary btn-small", id: "event_button" %><br>
-            </div>
+                <br>
+
+                <%= link_to "View Event", event_path(event), class: "btn btn-sm btn-outline-secondary"%><br>
+                <%= link_to "Add Event to my Cal", new_event_calendar_path(event), method: :post, class: "btn btn-outline-success", id: "event_button" %><br>
+                </div>
             <div class="col">
                 <img src =<%=event.image%> width="280" height="190" class="shadow rounded" preserveAspectRatio="xMidYMid slice">
             </div>

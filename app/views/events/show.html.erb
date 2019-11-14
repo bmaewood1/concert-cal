@@ -17,9 +17,23 @@
                 <img src =<%=@event.image%> class="bd-placeholder-img card-img-top" preserveAspectRatio="xMidYMid slice"><br>
                 <div id="options">
                     <div class="btn-group">
-                        <%=button_to "Add Event to my Cal", new_event_calendar_path(@event), method: :post, class: "btn btn-sm btn-outline-secondary" %>
-                        <%=button_to "Buy a ticket", @event.ticket_url, class:"btn btn-sm btn-outline-secondary", target: :_blank %><br>
+                        <%=link_to "Add Event to my Cal", new_event_calendar_path(@event), method: :post, class: "btn btn-sm btn-outline-secondary" %>
+                        <%=link_to "Buy a ticket", @event.ticket_url, class:"btn btn-sm btn-outline-secondary", target: :_blank %><br>
                     </div>
+                </div>
+                <div class="rsvp">
+                <b>RSVPs:</b><br>
+                <% User.all.each do |user| %>
+        
+                    <% if EventCalendar.all.find_by(event_id: @event.id) %>
+                        <% if user.calendar.id == (EventCalendar.all.find_by(event_id: @event.id)).calendar_id %>
+                            <%= user.full_name %><br>
+                            <% if session[:user_id] != user.id %>
+                                <%= link_to "View #{user.first_name}'s Concert Cal", calendar_path(user.calendar.id) %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
                 </div>
             </div>
             <div class="col-md-4"></div>
@@ -27,18 +41,7 @@
     </div>
 
 
-    RSVPs:
-        <% User.all.each do |user| %>
 
-            <% if EventCalendar.all.find_by(event_id: @event.id) %>
-                <% if user.calendar.id == (EventCalendar.all.find_by(event_id: @event.id)).calendar_id %>
-                    <%= user.full_name %><br>
-                    <% if session[:user_id] != user.id %>
-                        <%= link_to "View #{user.first_name}'s Concert Cal", calendar_path(user.calendar.id) %>
-                    <% end %>
-                <% end %>
-            <% end %>
-        <% end %>
     </div>
 </div>
 

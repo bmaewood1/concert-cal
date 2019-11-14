@@ -1,4 +1,37 @@
 
+ .calendar-heading {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 110%;
+    text-align: center;
+    justify-content: space-around;
+ }
+
+.span {
+    calendar-title {
+        justify-content: space-around;
+    }
+}
+
+.home { 
+    background-image: image-url('IMG-5677.jpg'); 
+    height: 100vh;
+    width: 100vw;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+.centered-left {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    margin-left: 340px;
+    font-size: 30px;
+    opacity: 80%;
+  }
 
 #event_body {
     margin: 20px;
@@ -19,7 +52,7 @@
 }
 
 .title {
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 20px;
     font-size: 4em;
     font-family: 'Quicksand', sans-serif;
@@ -35,3 +68,23 @@
     font-family: 'Catamaran', sans-serif;
 }
 
+.flash {
+    animation: flash 3s;
+    opacity: 0;
+
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        display: none;
+    }
+}

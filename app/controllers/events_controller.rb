@@ -10,9 +10,12 @@ class EventsController < ApplicationController
 
   before_action :authorized, only: [:index]
   
+  def home 
+    
+  end
 
   def index
-    json = JSON.parse(RestClient.get 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&marketId=35&apikey=9Gi3bYz1RDWYyebA5yy6setBUgOQPG12&size=20')
+    json = JSON.parse(RestClient.get 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&marketId=35&apikey=9Gi3bYz1RDWYyebA5yy6setBUgOQPG12&size=50')
 
     @events = []
 

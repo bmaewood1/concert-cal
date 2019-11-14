@@ -1,15 +1,44 @@
-<body>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:500,700|Quicksand&display=swap" rel="stylesheet"> 
+</head>
+<div style="font-family: 'Catamaran', sans-serif;">
+    <div class="album py-5 bg-light">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <h1 align="center" style="margin-top: 20px; font-weight: 500">LOGIN</h1>
 
-  <%= form_tag sessions_path do %>
-    <%= label_tag "Username" %>
-    <%= text_field_tag :username %>
-    <br>
-    <%= label_tag 'Password' %>
-    <%= password_field_tag :password %>
-    <br>
-    <%= submit_tag "Sign In" %>
-  <% end %>
-</body>
+                    <div class="card-body" id="event_card">
+                      <%= form_tag sessions_path do %>
+                        <%= label_tag "Username: " %>
+                        <%= text_field_tag :username %>
+                        <br>
+                        <%= label_tag "Password: " %>
+                        <%= password_field_tag :password %>
+                        <br>
+                        <br>
+                        <%= submit_tag "Sign In" %>
+                      <% end %>
+                      <br>
+                      Not a member yet?<br>
+                      <%= link_to "Create an account here", new_user_path %>
+                    </div>
+                  </div>
+                </div>
+              </div>    
+            <div class="col-md-4"></div>
+        </div>
+    </div>
 
-Not a member yet?<br>
-<%= link_to "Create an account here", new_user_path %>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+

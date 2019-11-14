@@ -20,11 +20,20 @@
 */
 
 #event_card {
-    margin-left: 50px;
+    text-align: center;
+    
 }
 
 #options {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.btn-group {
+    margin-left: 10px;
+}
+
+.rsvp {
+    margin-left: 10px;
 }

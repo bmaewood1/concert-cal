@@ -1,6 +1,8 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:400,700|Quicksand&display=swap" rel="stylesheet">
+</head>
 
-
-<h1><%="#{@calendar.user.first_name}'s Concert Cal"%></h1>
+<h1 class="title"><%="#{@calendar.user.first_name}'s Concert Cal"%></h1>
 
 
 <%= month_calendar events: @my_events do |date, events| %>

@@ -12,6 +12,13 @@
     }
 }
 
+.search-title {
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 10px;
+    font-size: 50px;
+    text-align: center;
+}
+
 .home { 
     background-image: image-url('IMG-5677.jpg'); 
     height: 100vh;
@@ -28,7 +35,7 @@
     transform: translate(-50%, -50%);
     font-family: 'Quicksand', sans-serif;
     color: white;
-    margin-left: 340px;
+    margin-left: 315px;
     font-size: 30px;
     opacity: 80%;
   }

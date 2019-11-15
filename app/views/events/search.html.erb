@@ -1,14 +1,29 @@
-<h3>Events matching <%=Category.find(@category).name%>: <%=@parameter%><h3><hr>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:400,700|Quicksand&display=swap" rel="stylesheet">
+</head>
 
-<ul>
+<h4 class="search-title">Events matching <%=Category.find(@category).name%>: <%=@parameter%><h4><hr>
 
-<% @selected_events.order('date ASC').each do |result| %>  
-    <li>
-    Event: <%= result.artist %><br>
-    Venue: <%= result.venue %><br>
-    Date: <%= result.date.rfc2822.slice(0, result.date.rfc2822.length-14) %><br>
-    <%= link_to "View Event", event_path(result) %><br>
-    </li>
+
+
+<% @selected_events.order('date ASC').each do |result| %>
+    <div class="card">
+        <div class="card-header">
+            <strong class="card-title"><%=result.artist.upcase%></strong><br>
+        </div>
+        <div class="row">
+            <div class="col-8 align-middle" id = "event_body">
+                <span style="font-weight:700">Venue:</span> <%=result.venue%><br>
+                <b>Date:</b> <%=result.date.rfc2822.slice(0, result.date.rfc2822.length-15)%><br>
+                <br>
+                <%= link_to "View Event", event_path(result), class: "btn btn-sm btn-outline-secondary"%><br>
+                <%= link_to "Add Event to my Cal", new_event_calendar_path(result), method: :post, class: "btn btn-outline-success", id: "event_button" %><br>
+                </div>
+            <div class="col">
+                <img src =<%=result.image%> width="280" height="190" class="shadow rounded" preserveAspectRatio="xMidYMid slice">
+            </div>
+        </div>
+    </div>
 <% end %>
-</ul>
+
 

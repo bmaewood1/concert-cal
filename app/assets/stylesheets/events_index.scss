@@ -6,10 +6,18 @@
     justify-content: space-around;
  }
 
-.span {
-    calendar-title {
-        justify-content: space-around;
-    }
+.simple-calendar, .calendar-heading, .card-title {
+    font-size: 22px;
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 700;
+
+}
+
+.simple-calendar, .calendar-heading a {
+    justify-content: space-evenly;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 17px;
+
 }
 
 .search-title {
